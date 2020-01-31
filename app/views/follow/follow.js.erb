@@ -1,0 +1,6 @@
+var a1_text = $("#follow_unfollow_<%="#{@followee_id}_#{current_user.id}"%>").text();
+if(a1_text == "Follow"){    
+    $("#follow_unfollow_<%="#{@followee_id}_#{current_user.id}"%>").text('Un Follow');
+}else{
+    $("#follow_unfollow_<%="#{@followee_id}_#{current_user.id}"%>").text('Follow');
+}

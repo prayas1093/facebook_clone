@@ -1,0 +1,36 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.user-profile{
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    width: 800px;
+    margin: auto;
+    justify-content: space-around,
+    
+}
+
+.user-profile-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: auto;
+    height: 300px;
+    margin-top: 25px;
+}
+
+.user-profile-image{
+    display: flex;
+    margin: auto;
+    border-radius: 100px;
+    height: 200px;
+    margin-bottom: 0px;
+    margin-top: 45px
+}
+
+#user-profile-image{
+    height: 100%;
+}

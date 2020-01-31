@@ -1,0 +1,8 @@
+var a1_text = $("#post_<%=@post_id%>").text();
+
+if(a1_text=="Like"){
+    $("#post_<%=@post_id%>").text('UnLike');
+}else{
+    $("#post_<%=@post_id%>").text('Like');
+}
+

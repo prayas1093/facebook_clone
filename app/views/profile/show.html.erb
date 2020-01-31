@@ -1,0 +1,41 @@
+<div class='user-profile'>
+    <div class='user-profile-image'>
+        <% if  current_user.profile_picture? %>
+            <%= image_tag(current_user.profile_picture.url, alt: 'Image', id: 'user-profile-image') %>
+        <% else %>
+            <%= image_tag 'sample'%>
+        <% end %>
+    </div>
+    <div class='user-profile-details'>
+        <div>
+            First name:<br>
+            <input type="text" name='firstName' value=<%=current_user.first_name%> disabled>
+        </div>
+
+        <div>
+            Last name:<br>
+            <input type="text" name='lastName' value=<%=current_user.last_name%> disabled>
+        </div>
+
+        <div>
+            UserName:<br>
+            <input type="text" name='userName' value=<%=current_user.username%> disabled>
+        </div>
+
+        <div>
+            Email:<br>
+            <input type="text" name='email' value=<%=current_user.email%> disabled>
+        </div>
+
+        <div>
+            Address:<br>
+            <input type="text" name='address' value=<%=current_user.username%> disabled>
+        </div>
+    </div>
+
+    <div class='edit-user-profile'>
+        <%= link_to "Edit", edit_user_registration_path(current_user.username), remote: true, class: 'edit-user-profile' %>
+    <div>
+
+
+</div>

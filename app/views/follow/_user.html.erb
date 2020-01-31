@@ -1,0 +1,15 @@
+<%= user.username.capitalize %><br>
+Number Of Followers = <%= user.followers_count %><br>
+<% unless @current_user_followees.include?user.user_id %>
+    <%= link_to 'Follow', url_for(controller: :follow, action: :follow, followee_id: user.user_id), remote: true, class: 'follow_unfollow_link', id: "follow_unfollow_#{user.user_id}_#{current_user.id}"%>
+<% else %>  
+    <%= link_to 'Un Follow', url_for(controller: :follow, action: :follow, followee_id: user.user_id), remote: true, class: 'follow_unfollow_link', id: "follow_unfollow_#{user.user_id}_#{current_user.id}"%>
+<% end %>
+
+<div class="users-flex-container">
+    <div>
+        
+    </div>
+    <div>
+    </div>
+</div>

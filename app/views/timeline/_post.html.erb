@@ -1,0 +1,16 @@
+<div class="post-image-container">
+    <%= image_tag 'sample.jpg', id: 'post-img' %>
+</div>
+<div class="post-content-container">
+    <p>
+    <%=post.title%><br>
+    <%=post.description%><br>
+    <%=post.user.email%><br>
+    <%=post.created_at%>
+    </p>
+    <%if post.likes.where(user_id: current_user.id).first%>
+        <%= link_to "UnLike", url_for(controller: :like, action: :like_post_remote, post_id: post.id), remote: true,class: 'post_like_link', id: "post_#{post.id}" %>
+    <%else%>
+        <%= link_to "Like", url_for(controller: :like, action: :like_post_remote, post_id: post.id), remote: true, class: 'post_like_link', id: "post_#{post.id}" %>
+    <%end%>   
+</div>    
