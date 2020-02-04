@@ -4,8 +4,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable, :omniauthable,omniauth_providers: [:facebook]
 
-  validates :first_name, :last_name, :username, presence: true, length: { maximum: 20 }
-  validates :address, presence: true, length: { in: 6..50 }
+  validates :first_name, :username, presence: true, length: { maximum: 20 }
+  # validates :address,length: { in: 6..50 }
   validates :email, :username, uniqueness: true
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -34,16 +34,28 @@ class User < ApplicationRecord
     end  
 
     def self.from_omniauth(auth)
-      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-        user.email = auth.info.email
-        user.provider = auth.provider
-        user.uid = auth.uid
-        user.password = Devise.friendly_token[0,20]
+      user=User.where(provider: auth.provider, uid: auth.uid).first
+      if user.nil?
+        user=User.new({email: auth.info.email, provider: auth.provider,
+                      uid: auth.uid, password: Devise.friendly_token[0,20],
+                      profile_picture: auth.info.image,first_name: auth.info.name  
+                     })
+        user.username=user.generate_username
+        user.skip_confirmation!
+        user.save
       end
+      user   
     end
 
 
 
+
+    def generate_username
+      source=("a".."z").to_a + ("A".."Z").to_a + (0..9).to_a + ["_","-","."]
+      key=""
+      8.times{ key += source[rand(source.size)].to_s }
+      key
+    end  
 
   
 end
