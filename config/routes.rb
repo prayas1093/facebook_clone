@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  devise_for :users, controllers: {sessions: 'users/sessions', passwords: 'users/passwords', confirmations: 'users/confirmations',registrations: 'users/registrations', unlocks: 'users/unlocks'}
+  devise_for :users, controllers: {sessions: 'users/sessions', passwords: 'users/passwords', confirmations: 'users/confirmations',registrations: 'users/registrations', unlocks: 'users/unlocks', omniauth_callbacks: 'users/omniauth_callbacks'}
   
   resource :posts
   

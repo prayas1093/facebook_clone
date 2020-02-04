@@ -2,7 +2,7 @@ class User < ApplicationRecord
   mount_uploader :profile_picture, ProfilePictureUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable, :lockable, :timeoutable, :trackable
+         :confirmable, :lockable, :timeoutable, :trackable, :omniauthable
 
   validates :first_name, :last_name, :username, presence: true, length: { maximum: 20 }
   validates :address, presence: true, length: { in: 6..50 }
