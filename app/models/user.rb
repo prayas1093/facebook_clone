@@ -2,7 +2,7 @@ class User < ApplicationRecord
   mount_uploader :profile_picture, ProfilePictureUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable, :lockable, :timeoutable, :trackable, :omniauthable
+         :confirmable, :lockable, :timeoutable, :trackable, :omniauthable,omniauth_providers: [:facebook]
 
   validates :first_name, :last_name, :username, presence: true, length: { maximum: 20 }
   validates :address, presence: true, length: { in: 6..50 }
@@ -33,7 +33,14 @@ class User < ApplicationRecord
       feed_total.count/Constants::POST_PAGE_COUNT
     end  
 
-
+    def self.from_omniauth(auth)
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.email = auth.info.email
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.password = Devise.friendly_token[0,20]
+      end
+    end
 
 
 
