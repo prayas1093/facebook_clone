@@ -1,9 +1,11 @@
-<%= form_with model: @article, url: “/posts” do |f| %>
-  <% if  current_user.profile_picture? %>
-        <%= image_tag(current_user.profile_picture.url, alt: 'Image', id: 'user-profile-image') %>
-<% else %>
-        <%= image_tag 'sample'%>
-<% end %>
-<%= f.text_area :body, size: "60x12" %>
-<%= f.submit "Create" %>
-<% end %>
+<h1>Hey Hows you</h1>
+
+<%#= form_with model: @article, url: “/posts” do |f| %>
+  <%# if  current_user.profile_picture? %>
+        <%#= image_tag(current_user.profile_picture.url, alt: 'Image', id: 'user-profile-image') %>
+<%# else %>
+        <%#= image_tag 'sample'%>
+<%# end %>
+<%#= f.text_area :body, size: "60x12" %>
+<%#= f.submit "Create" %>
+<%# end %>

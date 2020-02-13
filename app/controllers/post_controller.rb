@@ -5,6 +5,7 @@ class PostController < ApplicationController
     
 
     def create_post_remote
+        binding.pry
         @post=current_user.posts.create(post_params)
         respond_to do |format|
             format.js { render 'create_post_remote.js.erb' }

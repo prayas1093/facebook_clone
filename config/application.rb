@@ -29,6 +29,6 @@ module FacebookClone
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-    config.hosts << "ec5b9f6a.ngrok.io"
+    config.hosts << "f319bd92.ngrok.io"
   end
 end
