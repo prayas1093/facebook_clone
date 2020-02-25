@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   get '/follow' => 'follow#follow'
   get '/user_profile' => 'profile#show'
   get '/edit/:username' => 'profile#edit', as: 'edit_profile'
-  get '/check_username' => 'profile#check_username'
-
+  get '/check_field_validations' => 'profile#check_fields_validity'
+  get '/search_username' => 'follow#search_username'
+  get '/show_profile_remote' => 'follow#show_profile_remote'
 
 end

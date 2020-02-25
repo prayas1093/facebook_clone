@@ -1,0 +1,38 @@
+<div class='user-profile'>
+
+  <div class='user-profile-image'>
+    <% if  user.profile_picture? %>
+      <%= image_tag(user.profile_picture.url, alt: 'Image', id: 'user-profile-image') %>
+    <% else %>
+      <%= image_tag 'sample'%>
+    <% end %>
+  </div>
+  <div class='user-profile-details'>
+    <div>
+      First name:<br>
+      <input type="text" name='firstName' value=<%=user.first_name%> disabled/>
+    </div>
+
+    <div>
+      Last name:<br>
+      <input type="text" name='lastName' value=<%=user.last_name%> disabled/>
+    </div>
+
+    <div>
+      UserName:<br>
+      <input type="text" name='userName' value=<%=user.username%> disabled/>
+    </div>
+
+    <div>
+      Email:<br>
+      <input type="text" name='email' value=<%=user.email%> disabled>
+    </div>
+
+    <div>
+      Address:<br>
+      <input type="text" name='address' value=<%=user.username%> disabled>
+    </div>
+  </div>
+
+
+</div>

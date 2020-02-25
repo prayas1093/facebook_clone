@@ -16,7 +16,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
-    super
+    respond_to do |format|
+      format.js
+    end
   end
 
   # PUT /resource

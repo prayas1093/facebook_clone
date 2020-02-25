@@ -1,9 +1,9 @@
-<ul>
+
+<div class='all-users'>
     <% users.each do |user| %>
-
-        <li>
-            <%= render 'user', :user => user %>
-        </li>
-
+      <div class="user">
+        <%= render 'user', :user => user %>
+      </div>
     <% end %>
-</ul>
+  </ul>
+</div>

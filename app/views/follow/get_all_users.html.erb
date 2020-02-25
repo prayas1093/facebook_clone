@@ -1,1 +1,12 @@
-<%= render 'users', :users => @users %>
+<div class="users-parent-container">
+  <div>
+    <div class="user-search-input">
+      <input list="users" type="text" name='username_initials' id="search_username" placeholder="Enter Username to search" >
+      <datalist id="users"></datalist>
+    </div>
+    <div>
+      <%= render 'users', :users => @users %>
+    </div>
+  </div>
+  <div class="selected-user"></div>
+</div>

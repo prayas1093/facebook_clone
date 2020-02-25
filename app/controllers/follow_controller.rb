@@ -10,6 +10,17 @@ class FollowController < ApplicationController
     end   
 
 
+    def search_username
+        user_input_value=params[:userInput]
+        user_names=User.where("username iLIKE ?", "#{user_input_value}%").pluck(:username)
+        if user_names.length!=0
+            return render json: {:status=>true,:data=>user_names}
+        else
+            return render json: {:status=>false,:data=>[]}
+        end
+    end
+
+
     def follow
         @followee_id=params[:followee_id]
         follow_mapping=FollowMapping.where(follower_id: current_user.id, followee_id: @followee_id).first
@@ -25,17 +36,22 @@ class FollowController < ApplicationController
             respond_to :js
         end
 
-
-
         # begin
         #    if save
         #    else
         #     raise Excepetion.new("")
-        #    end 
+        #    end
         # rescue => exception
         #     @error = ""
         # end
 
+    end
+
+    def show_profile_remote
+        @user=User.find_by_username(params[:userInput])
+        respond_to do |format|
+            format.js { render 'show_profile_remote.js.erb' }
+        end
     end
 
 

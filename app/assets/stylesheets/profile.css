@@ -3,10 +3,19 @@
     padding: 0px;
 }
 
+.warning{
+    border-color: red;
+}
+
+.accurate{
+    border-color: green ;
+}
+
+
 .user-profile{
     display: flex;
     flex-direction: column;
-    height: 700px;
+    min-height: 700px;
     width: 800px;
     margin: auto;
     justify-content: space-around,

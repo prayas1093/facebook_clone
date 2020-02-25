@@ -8,3 +8,40 @@
     flex-direction: column;
 }
 
+
+.users-parent-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.all-users{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 300px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 2px #ccc;
+    margin-top: 20px;
+}
+
+.user{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #eee;
+    box-shadow: 2px #ccc;
+    margin: 5px 0 5px 5px;
+}
+
+.user-search-input{
+    width: 300px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.selected-user{
+    min-width: 650px;
+    border: 1px solid #eee;
+    box-shadow: 2px #ccc;
+    margin-top: 60px;
+    visibility: hidden;
+}

@@ -8,6 +8,7 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :trackable, :omniauthable,omniauth_providers: [:facebook,:twitter]
 
   validates :first_name, :username, presence: true, length: { maximum: 20 }
+  validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/ }
   # validates :address,length: { in: 6..50 }
   validates :email, :username, uniqueness: true
   has_many :posts, dependent: :destroy
