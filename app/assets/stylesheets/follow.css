@@ -22,6 +22,8 @@
     border: 1px solid #eee;
     box-shadow: 0 2px 2px #ccc;
     margin-top: 20px;
+    max-height: calc(100vh - 130px);
+    overflow: scroll;
 }
 
 .user{
@@ -36,6 +38,7 @@
     width: 300px;
     margin: auto;
     margin-top: 20px;
+    position: relative;
 }
 
 .selected-user{
@@ -44,4 +47,22 @@
     box-shadow: 2px #ccc;
     margin-top: 60px;
     visibility: hidden;
+}
+
+.user-search-input ul{
+    list-style: none;
+    position: absolute;
+    top: 40px;
+    margin: 0;
+    background: #fff;
+    width:100%;
+}
+.user-search-input input {
+    height: 35px;
+    width:100%;
+    padding: 5px
+}
+.user-search-input ul li {
+    border: 1px solid #eee;
+    padding:5px
 }

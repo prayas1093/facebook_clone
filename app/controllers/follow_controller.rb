@@ -11,13 +11,13 @@ class FollowController < ApplicationController
 
 
     def search_username
-        user_input_value=params[:userInput]
-        user_names=User.where("username iLIKE ?", "#{user_input_value}%").pluck(:username)
-        if user_names.length!=0
-            return render json: {:status=>true,:data=>user_names}
-        else
-            return render json: {:status=>false,:data=>[]}
+        user_names=User.where("username iLIKE ?", "#{params[:userInput]}%").pluck(:username)
+        @modified_usernames = (user_names).map do|u|
+            "<b>#{params[:userInput]}</b>"+u[params[:userInput].length..-1]
         end
+
+        respond_to :js
+
     end
 
 

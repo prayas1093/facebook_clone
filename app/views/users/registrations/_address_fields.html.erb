@@ -1,0 +1,30 @@
+
+<div class='nested-fields'>
+    <div class="field">
+      <%= f.label :address_line_1 %>
+      <%= f.text_field :address_line_1, id: :autocomplete_address%>
+    </div>
+    <div class="field">
+       <%= f.label :address_line_2 %>
+       <%= f.text_field :address_line_2, id: :administrative_area_level_1 %>
+    </div>
+    <div class="field">
+      <%= f.label :city %>
+      <%= f.text_field :city,id: :locality %>
+    </div>
+    <div class="field">
+      <%= f.label :postal_code %>
+      <%= f.text_field :postal_code, id: :postal_code %>
+    </div>
+    <div class="field">
+      <%= f.label :country %>
+      <%= f.text_field :country, id: :country %>
+    </div>
+
+    <div class="field">
+     <%= f.label 'Name of the channel' %>
+     <%= f.text_field :route, id: :route %>
+    </div>
+
+    <%= link_to_remove_association "remove address", f %>
+  </div>

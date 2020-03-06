@@ -11,6 +11,8 @@ require("@rails/activestorage").start()
 require("channels")
 require("packs/new_registration")
 require("packs/search_user")
+require("cocoon")
+require("packs/autocomplete")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -27,16 +29,4 @@ require("packs/search_user")
 
 
 
-
-// console.log("           ^^^");
-// console.log("........../¯¯/)                      STOP");
-// console.log("........./¯¯/                 This thing Now");
-// console.log("......../../            Oh! you wanna check out some");
-// console.log("..../¯¯/../´¯¯`.¸   interesting codes, don't you?");
-// console.log(".../../../../.../¨¯\\\\          Fuck OFF Now!!");
-// console.log("..(‘(…´…´…. ¯~/’…’)         Madharchod Saala :p :p");
-// console.log("………\\\\……………..’…../");
-// console.log("……….”…\\\\………. _.·´");
-// console.log("…………\\\\…………..(");
-// console.log("…………..\\\\………….\\\\…");
 

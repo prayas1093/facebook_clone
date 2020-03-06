@@ -1,0 +1,2 @@
+$(".user-search-input ul").remove();
+$(".user-search-input").append("<%= escape_javascript render(:partial => 'list', :locals => { :users => @modified_usernames }) %>");

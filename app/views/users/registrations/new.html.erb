@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: "signUp"}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
@@ -43,14 +43,15 @@
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name, autocomplete: "last-name" %>
   </div>
-
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address, autocomplete: "address" %>
+  <div id="addresses">
+      <%= f.fields_for :addresses do |address| %>
+        <%= render 'address_fields', :f => address %>
+      <% end %>
+      <div class="links">
+          <%= link_to_add_association 'Add Address', f, :addresses, html_options: {'data-association-insertion-node': '#addresses' } %>
+      </div>
   </div>
 
-
-  
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

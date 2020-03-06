@@ -33,14 +33,14 @@ $(document).on('turbolinks:load', function() {
         }
     }
 
-    $("input").focus(function(){
-        if($(`#${this.id}`).parent().has("ul").length > 0 ){
-            $(this).parent().empty('ul');
+    $("form#signUp input").focus(function(){
+        if($(this).siblings('ul').length){
+            $(this).siblings('ul').remove();
         }
     });
 
 
-    $("input").blur(function(){
+    $("form#signUp input").blur(function(){
         switch(this.id) {
             case 'user_email':
                 fieldValidationCall('user_email');
@@ -57,7 +57,6 @@ $(document).on('turbolinks:load', function() {
             case 'user_address':
                 break;
         }
-
     });
 
 

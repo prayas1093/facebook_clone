@@ -25,7 +25,7 @@ $(document).on('turbolinks:load', function() {
     });
 
 
-    $(document).on('change', 'input', function(){
+    $(document).on('change', 'input#search_username', function(){
         var options = $('datalist')[0].options;
         var val = $(this).val();
         for (var i=0;i<options.length;i++){

@@ -2,6 +2,8 @@ require 'my_shared_libs/helper_functions'
 class User < ApplicationRecord
   include HelperFunctions
 
+  geocoded_by :addresses
+  after_validation :geocode,:if=> :address_changed?
   mount_uploader :profile_picture, ProfilePictureUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
@@ -11,6 +13,8 @@ class User < ApplicationRecord
   validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/ }
   # validates :address,length: { in: 6..50 }
   validates :email, :username, uniqueness: true
+  has_many :addresses, dependent: :destroy
+  accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :follower_mappings, class_name: :FollowMapping, foreign_key: :followee_id
